@@ -3,9 +3,9 @@ package com.bridgelabz;
 public class TestMaxUsingGenerics {
 
 	public static void main(String[] args) {
-		Integer a = 5;
-		Integer b =6;
-		Integer c = 8;
+		Float a = 5.6f;
+		Float b = 6.8f;
+		Float c = 8.7f;
 
 		System.out.println(getMax(a,b,c));
 	}
