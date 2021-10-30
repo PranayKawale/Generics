@@ -1,32 +1,33 @@
 package com.bridgelabz;
 
-public class TestMaxUsingGenerics {
-
-	public static void main(String[] args) {
-		String a = "Apple";
-		String b = "Peach";
-		String c = "Banana";
-		Integer x = 5;
-		Integer y =6;
-		Integer z = 8;
-		Float m = 5.6f;
-		Float n = 6.8f;
-		Float j = 8.7f;
-
-
-		System.out.println(getMax(a,b,c));
-		System.out.println(getMax(x,y,z));
-		System.out.println(getMax(m,n,j));
+public class TestMaxUsingGenerics<T extends Comparable <T>>  {
+	T x, y, z;
+	
+	public TestMaxUsingGenerics(T x, T y, T z) {
+		this.x = x;
+		this.y = y;
+		this.z = z;
 	}
 
-	public static <T extends Comparable> T getMax(T a, T b, T c) {
+	public static void main(String[] args) {
+		TestMaxUsingGenerics max1 = new TestMaxUsingGenerics<Integer>(5,6,8);
+		TestMaxUsingGenerics max2 = new TestMaxUsingGenerics<Float>(5.6f,6.8f,8.7f);
+		TestMaxUsingGenerics max3 = new TestMaxUsingGenerics<String>("Apple", "Peach", "Banana");
+	
 
-		if (a.compareTo(b) > 0 && a.compareTo(c) > 0)
-			return a;
-		else if (b.compareTo(a) > 0 && b.compareTo(c) > 0)
-			return b;
+		System.out.println(max1.testMax());
+		System.out.println(max2.testMax());
+		System.out.println(max3.testMax());
+	}
+
+	public <T extends Comparable> T testMax() {
+
+		if (x.compareTo(y) > 0 && x.compareTo(z) > 0)
+			return (T) x;
+		else if (y.compareTo(x) > 0 && y.compareTo(z) > 0)
+			return (T) y;
 		else
-			return c;
+			return (T) z;
 	}
 }
 
