@@ -6,8 +6,17 @@ public class TestMaxUsingGenerics {
 		String a = "Apple";
 		String b = "Peach";
 		String c = "Banana";
+		Integer x = 5;
+		Integer y =6;
+		Integer z = 8;
+		Float m = 5.6f;
+		Float n = 6.8f;
+		Float j = 8.7f;
+
 
 		System.out.println(getMax(a,b,c));
+		System.out.println(getMax(x,y,z));
+		System.out.println(getMax(m,n,j));
 	}
 
 	public static <T extends Comparable> T getMax(T a, T b, T c) {
